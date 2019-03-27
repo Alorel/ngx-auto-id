@@ -10,8 +10,8 @@ before_install:
 install: yarn install --check-files
 script:
   - yarn run tslint
-  - yarn run typecheck
   - yarn test
+  - yarn build:demo:aot
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/ngx-auto-id/lcov.info | coveralls
 cache:

@@ -4,8 +4,10 @@ import {Injectable} from '@angular/core';
 
 const _registry: unique symbol = Symbol('registry');
 
+/** Service responsible for generating IDs */
 @Injectable({providedIn: 'root'})
 export class NgxAutoIdService {
+  /** @internal */
   private readonly [_registry]: { [k: string]: number };
 
   public constructor() {
@@ -14,7 +16,7 @@ export class NgxAutoIdService {
 
   /**
    * Get the next ID
-   * @param prefix Prefix of the ID
+   * @param [prefix=el-] Prefix of the ID
    */
   public next(prefix = 'el-'): string {
     if (!(prefix in this[_registry])) {
