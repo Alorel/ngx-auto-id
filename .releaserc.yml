@@ -11,7 +11,7 @@ prepare:
 - '@alorel-personal/semantic-release'
 - *npm
 - path: &exec '@semantic-release/exec'
-  cmd: yarn run doctoc
+  cmd: doctoc --github README.md
 - path: *exec
   cmd: alo copy-files
 - path: *exec
@@ -25,10 +25,11 @@ prepare:
   - README.md
   - package.json
   - yarn.lock
+  - projects/ngx-auto-id/package.json
 
 publish:
 - path: *npm
-  pkgRoot: './dist'
+  pkgRoot: './dist/ngx-auto-id'
 - *gh
 
 generateNotes:
