@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { NgxAutoIdComponent } from './ngx-auto-id.component';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {NgxAutoIdDirective} from './NgxAutoIdDirective';
 
 @NgModule({
-  declarations: [NgxAutoIdComponent],
-  imports: [
-  ],
-  exports: [NgxAutoIdComponent]
+  declarations: [NgxAutoIdDirective],
+  exports: [NgxAutoIdDirective],
+  imports: [CommonModule]
 })
-export class NgxAutoIdModule { }
+export class NgxAutoIdModule {
+}
