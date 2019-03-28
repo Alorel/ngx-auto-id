@@ -1,6 +1,6 @@
 {
   "name": "ngx-auto-id",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "start": "ng serve",
     "build:demo:aot": "ng build ngx-auto-id-demo --aot --prod",
