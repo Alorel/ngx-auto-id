@@ -12,7 +12,7 @@
     "pretest": "rimraf coverage",
     "prebuild:lib": "rimraf dist/ngx-auto-id",
     "prebuild:demo:aot": "npm --scripts-prepend-node-path=auto run prebuild:lib",
-    "postbuild:lib": "node rm-tslib-dependency.js"
+    "postbuild:lib": "node postprocess.js"
   },
   "private": true,
   "dependencies": {
