@@ -30,7 +30,7 @@ jobs:
       before_install:
         - npm i -g yarn
         - if [[ $GH_TOKEN ]]; then ./.alobuild-prep-release.sh; fi;
-      before_script: yarn run build
+      before_script: yarn run build:lib
       script: semantic-release
       after_success: []
       after_script: []
