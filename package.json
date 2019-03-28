@@ -65,6 +65,8 @@
     "angular",
     "auto",
     "id",
+    "generator",
+    "id-generator",
     "directive"
   ],
   "repository": "git@github.com:Alorel/ngx-auto-id.git",
