@@ -13,6 +13,8 @@ prepare:
   - path: &exec '@semantic-release/exec'
     cmd: doctoc --github README.md
   - path: *exec
+    cmd: node ./postprocess.js
+  - path: *exec
     cmd: alo copy-files
   - path: *exec
     cmd: alo clean-dist
