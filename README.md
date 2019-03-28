@@ -2,7 +2,7 @@
 
 Automatic ID generator for Angular
 
-[![Build Status](https://travis-ci.org/Alorel/ngx-auto-id.svg?branch=master)](https://travis-ci.org/Alorel/ngx-auto-id)
+[![Build Status](https://travis-ci.com/Alorel/ngx-auto-id.svg?branch=master)](https://travis-ci.com/Alorel/ngx-auto-id)
 [![Coverage Status](https://coveralls.io/repos/github/Alorel/ngx-auto-id/badge.svg?branch=master)](https://coveralls.io/github/Alorel/ngx-auto-id?branch=master)
 
 -----
