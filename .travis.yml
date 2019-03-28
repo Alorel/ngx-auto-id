@@ -1,0 +1,37 @@
+language: node_js
+node_js: lts/*
+env:
+  global:
+    - GK_LOCK_YARN_OPTS=-W
+before_install:
+  - npm i -g yarn greenkeeper-lockfile
+  - if [[ $GH_TOKEN ]]; then ./.alobuild-prep-release.sh; fi;
+  - greenkeeper-lockfile-update
+install: yarn install --check-files
+script:
+  - yarn run tslint
+  - yarn test
+  - yarn build:demo:aot
+after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
+after_success: cat ./coverage/ngx-auto-id/lcov.info | coveralls
+cache:
+  yarn: true
+stages:
+  - Test
+  - name: Release
+    if: 'branch = master AND type = push AND (NOT tag IS present)'
+jobs:
+  include:
+    - stage: Test
+      addons:
+        chrome: stable
+    - stage: Release
+      node_js: lts/*
+      before_install:
+        - npm i -g yarn
+        - if [[ $GH_TOKEN ]]; then ./.alobuild-prep-release.sh; fi;
+      before_script: yarn run build
+      script: semantic-release
+      after_success: []
+      after_script: []
+

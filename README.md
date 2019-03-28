@@ -1,27 +1,93 @@
-# NgxAutoId
+# ngx-auto-id
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+Automatic ID generator for Angular
 
-## Development server
+[![Build Status](https://travis-ci.org/Alorel/ngx-auto-id.svg?branch=master)](https://travis-ci.org/Alorel/ngx-auto-id)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngx-auto-id/badge.svg?branch=master)](https://coveralls.io/github/Alorel/ngx-auto-id?branch=master)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-----
 
-## Code scaffolding
+# Table of Contents
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Automatically setting the default ID](#automatically-setting-the-default-id)
+  - [Controlling the ID prefix](#controlling-the-id-prefix)
+  - [Generating an ID without setting it](#generating-an-id-without-setting-it)
+  - [Typical usage within forms](#typical-usage-within-forms)
 
-## Running unit tests
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Installation
 
-## Running end-to-end tests
+```bash
+npm install @aloreljs/ngx-auto-id #for Angular 7
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Usage
 
-## Further help
+In whatever module you want to use the directive in:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```typescript
+import {NgxAutoIdModule} from '@aloreljs/ngx-auto-id';
+
+@NgModule({
+  imports: [NgxAutoIdModule]
+})
+export class MyFancyModule {}
+```
+
+## Automatically setting the default ID
+
+```html
+<div ngx-auto-id></div>
+<div ngx-auto-id></div>
+```
+
+Outputs:
+
+```html
+<div id="el-1"></div>
+<div id="el-2"></div>
+```
+
+## Controlling the ID prefix
+
+```html
+<div ngx-auto-id></div>
+<div ngx-auto-id id-prefix="fancy-"></div>
+```
+
+Outputs:
+
+```html
+<div id="el-3"></div>
+<div id="fancy-1"></div>
+```
+
+## Generating an ID without setting it
+
+```html
+<div [ngx-auto-id]="false" #autoID="ngx-auto-id"></div> <!-- Must be strictly false, not falsy -->
+<div [id]="autoID.toString()"></div>
+<div [id]="autoID"></div> <!-- The .toString() method returns the ID -->
+```
+
+Outputs:
+
+```html
+<div></div>
+<div id="el-4"></div>
+<div id="el-4"></div>
+```
+
+## Typical usage within forms
+
+```html
+<label [for]="idUsername">Username:</label>
+<input ngx-auto-id #idUsername="ngx-auto-id"/>
+```

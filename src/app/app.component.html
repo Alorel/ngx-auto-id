@@ -1,0 +1,10 @@
+<div ngx-auto-id>one</div>
+<div [ngx-auto-id]="true">two</div>
+<div [ngx-auto-id]="false">three</div>
+<div [id-prefix]="'foo-'" [ngx-auto-id]="true">four</div>
+<ng-container #id1='ngx-auto-id' ngx-auto-id>
+  <div>{{id1}}</div>
+</ng-container>
+<ng-container #id2='ngx-auto-id' [ngx-auto-id]="false">
+  <div>{{id2}}</div>
+</ng-container>

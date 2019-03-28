@@ -1,0 +1,19 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "projects/ngx-auto-id/package.json"
+      ]
+    }
+  },
+  "ignore": [
+    "core-js",
+    "karma-jasmine",
+    "@types/jasmine",
+    "typescript",
+    "jasmine-core",
+    "karma",
+    "karma-jasmine-html-reporter"
+  ]
+}
