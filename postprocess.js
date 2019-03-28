@@ -8,7 +8,16 @@ delete json.dependencies;
 json.types = json.typings;
 
 const rootPkgJson = require('./package');
-const syncedKeys = ['version', 'keywords', 'description', 'repository', 'license'];
+const syncedKeys = [
+  'version',
+  'keywords',
+  'description',
+  'repository',
+  'license',
+  'author',
+  'homepage',
+  'bugs'
+];
 for (const k of syncedKeys) {
   json[k] = rootPkgJson[k];
 }

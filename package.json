@@ -69,6 +69,18 @@
     "id-generator",
     "directive"
   ],
-  "repository": "git@github.com:Alorel/ngx-auto-id.git",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alorel/ngx-auto-id.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Arturas Molcanovas",
+    "url": "https://github.com/Alorel",
+    "email": "a.molcanovas@gmail.com"
+  },
+  "homepage": "https://alorel.github.io/ngx-auto-id/",
+  "bugs": {
+    "url": "https://github.com/Alorel/ngx-auto-id/issues"
+  }
 }
