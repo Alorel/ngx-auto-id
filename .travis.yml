@@ -5,7 +5,6 @@ env:
     - GK_LOCK_YARN_OPTS=-W
 before_install:
   - npm i -g yarn greenkeeper-lockfile
-  - if [[ $GH_TOKEN ]]; then ./.alobuild-prep-release.sh; fi;
   - greenkeeper-lockfile-update
 install: yarn install --check-files
 script:
@@ -27,9 +26,7 @@ jobs:
         chrome: stable
     - stage: Release
       node_js: lts/*
-      before_install:
-        - npm i -g yarn
-        - if [[ $GH_TOKEN ]]; then ./.alobuild-prep-release.sh; fi;
+      before_install: npm i -g yarn
       before_script: yarn run build:lib
       script: semantic-release
       after_success: []
