@@ -4,6 +4,7 @@ import {NgxAutoIdService} from './NgxAutoIdService';
 const _svc: unique symbol = Symbol('svc');
 const _id: unique symbol = Symbol('id');
 
+/** Automatically generates and sets a unique ID on the HTML element */
 @Directive({
   exportAs: 'ngx-auto-id',
   selector: '[ngx-auto-id]'
@@ -39,6 +40,7 @@ export class NgxAutoIdDirective implements OnInit {
     Object.defineProperty(this, _id, {value: this[_svc].next(this.idPrefix)});
   }
 
+  /** Return the generated ID */
   public toString(): string {
     return this[_id];
   }
