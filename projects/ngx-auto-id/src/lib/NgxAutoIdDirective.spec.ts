@@ -1,6 +1,7 @@
 import {Component, DebugElement, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
+import {NGX_AUTO_ID_DEFAULT_PREFIX} from './DEFAULT_PREFIX_TOKEN';
 import {NgxAutoIdDirective} from './NgxAutoIdDirective';
 
 //tslint:disable:max-classes-per-file
@@ -9,20 +10,90 @@ describe('NgxAutoIdDirective', () => {
   let fixture: ComponentFixture<any>;
   let el: DebugElement;
 
-  describe('Just the attribute', () => {
-    let comp: any;
+  // noinspection AngularMissingOrInvalidDeclarationInModule
+  @Component({
+    template: '<div ngx-auto-id></div>'
+  })
+  class DummyDirectiveComponent {
+    @ViewChild(NgxAutoIdDirective, {static: false})
+    public dir: NgxAutoIdDirective;
+  }
 
-    // noinspection AngularMissingOrInvalidDeclarationInModule
-    @Component({
-      template: '<div ngx-auto-id></div>'
-    })
-    class DummyComponent {
-      @ViewChild(NgxAutoIdDirective, {static: false})
-      public dir: NgxAutoIdDirective;
-    }
+  describe('NGX_AUTO_ID_DEFAULT_PREFIX_TOKEN', () => {
+    let comp: DummyDirectiveComponent;
 
     function init() {
-      fixture = TestBed.createComponent(DummyComponent);
+      fixture = TestBed.createComponent(DummyDirectiveComponent);
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+      el = fixture.debugElement.query(By.css('div'));
+    }
+
+    it('Should not be required', () => {
+      TestBed.configureTestingModule({
+        declarations: [NgxAutoIdDirective, DummyDirectiveComponent]
+      });
+      init();
+      expect(comp.dir.idPrefix).toBeUndefined();
+    });
+
+    describe('If not a string', () => {
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+          declarations: [NgxAutoIdDirective, DummyDirectiveComponent],
+          providers: [{
+            provide: NGX_AUTO_ID_DEFAULT_PREFIX,
+            useValue: <any>5
+          }]
+        });
+      });
+
+      it('idPrefix should remain undefined', () => {
+        init();
+        expect(comp.dir.idPrefix).toBeUndefined();
+      });
+
+      it('Should print warning', () => {
+        let origConsoleWarn = console.warn;
+        try {
+          let msg: string = <any>null;
+          console.warn = (argMsg: string) => {
+            msg = argMsg;
+          };
+          init();
+          expect(msg).toBe('NGX_AUTO_ID_DEFAULT_PREFIX_TOKEN not a string');
+        } finally {
+          console.warn = origConsoleWarn;
+        }
+      });
+    });
+
+    it('Should not be required', () => {
+      TestBed.configureTestingModule({
+        declarations: [NgxAutoIdDirective, DummyDirectiveComponent]
+      });
+      init();
+      expect(comp.dir.idPrefix).toBeUndefined();
+    });
+
+    it('Should be set if a non-empty string', () => {
+      TestBed.configureTestingModule({
+        declarations: [NgxAutoIdDirective, DummyDirectiveComponent],
+        providers: [{
+          provide: NGX_AUTO_ID_DEFAULT_PREFIX,
+          useValue: 'foobar$'
+        }]
+      });
+      init();
+      expect(comp.dir.idPrefix).toBe('foobar$');
+    });
+  });
+
+  describe('Just the attribute', () => {
+    let comp: DummyDirectiveComponent;
+
+    function init() {
+      fixture = TestBed.createComponent(DummyDirectiveComponent);
       comp = fixture.componentInstance;
       fixture.detectChanges();
       el = fixture.debugElement.query(By.css('div'));
@@ -30,7 +101,7 @@ describe('NgxAutoIdDirective', () => {
 
     beforeEach((() => {
       TestBed.configureTestingModule({
-        declarations: [NgxAutoIdDirective, DummyComponent]
+        declarations: [NgxAutoIdDirective, DummyDirectiveComponent]
       });
 
       init();
@@ -51,27 +122,27 @@ describe('NgxAutoIdDirective', () => {
   });
 
   describe('Configurable', () => {
-    let comp: DummyComponent;
+    let comp: DummyConfigurableComponent;
 
     // noinspection AngularMissingOrInvalidDeclarationInModule
     @Component({
       template: '<div [ngx-auto-id]="id" [id-prefix]="prefix"></div>'
     })
-    class DummyComponent {
+    class DummyConfigurableComponent {
       public id = true;
 
       public prefix: string;
     }
 
     function init() {
-      fixture = TestBed.createComponent(DummyComponent);
+      fixture = TestBed.createComponent(DummyConfigurableComponent);
       comp = fixture.componentInstance;
       el = fixture.debugElement.query(By.css('div'));
     }
 
     beforeEach((() => {
       TestBed.configureTestingModule({
-        declarations: [NgxAutoIdDirective, DummyComponent]
+        declarations: [NgxAutoIdDirective, DummyConfigurableComponent]
       });
 
       init();
