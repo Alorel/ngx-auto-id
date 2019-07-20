@@ -46,5 +46,7 @@ export class NgxAutoIdDirective implements OnInit {
   }
 }
 
-NgxAutoIdDirective.prototype.enabled = true;
-NgxAutoIdDirective[Symbol.toStringTag] = 'NgxAutoIdDirective';
+Object.assign(NgxAutoIdDirective.prototype, {
+  enabled: true,
+  [Symbol.toStringTag]: 'NgxAutoIdDirective'
+});
