@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/Alorel/ngx-auto-id/compare/1.0.2...1.1.0) (2019-07-20)
+
+
+### Documentation
+
+* Added missing NgxAutoIdDirective documentation ([fd0d16a](https://github.com/Alorel/ngx-auto-id/commit/fd0d16a))
+
+
+### Features
+
+* Added a NGX_AUTO_ID_DEFAULT_PREFIX token for changing the default "el-" prefix ([c5c1fb4](https://github.com/Alorel/ngx-auto-id/commit/c5c1fb4))
+
 ## [1.0.2](https://github.com/Alorel/ngx-auto-id/compare/1.0.1...1.0.2) (2019-03-28)
 
 
