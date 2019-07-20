@@ -2,7 +2,9 @@
   "name": "@aloreljs/ngx-auto-id",
   "version": "0.0.1",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "ng7"
   },
   "peerDependencies": {
     "@angular/common": "^7.0.0",
