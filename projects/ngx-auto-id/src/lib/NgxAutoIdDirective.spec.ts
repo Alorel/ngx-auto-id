@@ -107,4 +107,12 @@ describe('NgxAutoIdDirective', () => {
       expect(el.attributes.id).toBe('el-10');
     });
   });
+
+  it('Should be enabled by default', () => {
+    expect(NgxAutoIdDirective.prototype.enabled).toBe(true);
+  });
+
+  it('Should have the toStringTag NgxAutoIdDirective', () => {
+    expect(NgxAutoIdDirective.prototype[Symbol.toStringTag]).toBe('NgxAutoIdDirective');
+  });
 });
