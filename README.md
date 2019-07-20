@@ -18,6 +18,7 @@ Automatic ID generator for Angular
 - [Usage](#usage)
   - [Automatically setting the default ID](#automatically-setting-the-default-id)
   - [Controlling the ID prefix](#controlling-the-id-prefix)
+    - [Setting the default ID prefix](#setting-the-default-id-prefix)
   - [Generating an ID without setting it](#generating-an-id-without-setting-it)
   - [Typical usage within forms](#typical-usage-within-forms)
 
@@ -26,7 +27,7 @@ Automatic ID generator for Angular
 # Installation
 
 ```bash
-npm install @aloreljs/ngx-auto-id #for Angular 7
+npm install @aloreljs/ngx-auto-id@^1.0.0 #for Angular 7
 ```
 
 # Usage
@@ -68,6 +69,27 @@ Outputs:
 ```html
 <div id="el-3"></div>
 <div id="fancy-1"></div>
+```
+
+### Setting the default ID prefix
+
+You might want to replace the default "el-" prefix with your own; in this case, you should provide a value for
+the NGX_AUTO_ID_DEFAULT_PREFIX token:
+
+```typescript
+import {NgModule} from '@angular/core';
+import {NGX_AUTO_ID_DEFAULT_PREFIX} from '@aloreljs/ngx-auto-id';
+
+@NgModule({
+  //... declarations etc
+  providers: [{
+    provide: NGX_AUTO_ID_DEFAULT_PREFIX,
+    useValue: 'my-prefix-'
+  }]
+})
+export class AppModule {
+  
+}
 ```
 
 ## Generating an ID without setting it
