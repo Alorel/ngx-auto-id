@@ -2,8 +2,8 @@
 
 Automatic ID generator for Angular
 
-[![Build Status](https://travis-ci.com/Alorel/ngx-auto-id.svg?branch=1.0.2)](https://travis-ci.com/Alorel/ngx-auto-id)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngx-auto-id/badge.svg?branch=1.0.2)](https://coveralls.io/github/Alorel/ngx-auto-id?branch=1.0.2)
+[![Build Status](https://travis-ci.com/Alorel/ngx-auto-id.svg?branch=2.0.0)](https://travis-ci.com/Alorel/ngx-auto-id)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/ngx-auto-id/badge.svg?branch=2.0.0)](https://coveralls.io/github/Alorel/ngx-auto-id?branch=2.0.0)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/ngx-auto-id.svg)](https://greenkeeper.io/)
 
 -----
