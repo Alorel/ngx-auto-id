@@ -18,7 +18,7 @@ cache:
 stages:
   - Test
   - name: Release
-    if: 'branch = master AND type = push AND (NOT tag IS present)'
+    if: 'branch = ng7 AND type = push AND (NOT tag IS present)'
 jobs:
   include:
     - stage: Test
