@@ -4,7 +4,10 @@ import {NgxAutoIdService} from './NgxAutoIdService';
 const _svc: unique symbol = Symbol('svc');
 const _id: unique symbol = Symbol('id');
 
-/** Automatically generates and sets a unique ID on the HTML element */
+/**
+ * Automatically generates and sets a unique ID on the HTML element
+ * Exported as ngx-auto-id
+ */
 @Directive({
   exportAs: 'ngx-auto-id',
   selector: '[ngx-auto-id]'
@@ -29,7 +32,10 @@ export class NgxAutoIdDirective implements OnInit {
     Object.defineProperty(this, _svc, {value: svc});
   }
 
-  /** Binding that determines the id attribute */
+  /**
+   * Binding that determines the id attribute
+   * @return The generated ID or null if the directive is disabled
+   */
   @HostBinding('attr.id')
   public get idBinding(): string | null {
     return this.enabled === false ? null : this[_id];
@@ -46,5 +52,7 @@ export class NgxAutoIdDirective implements OnInit {
   }
 }
 
-NgxAutoIdDirective.prototype.enabled = true;
-NgxAutoIdDirective[Symbol.toStringTag] = 'NgxAutoIdDirective';
+Object.assign(NgxAutoIdDirective.prototype, {
+  enabled: true,
+  [Symbol.toStringTag]: 'NgxAutoIdDirective'
+});

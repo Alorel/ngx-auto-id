@@ -26,7 +26,8 @@ Automatic ID generator for Angular
 # Installation
 
 ```bash
-npm install @aloreljs/ngx-auto-id #for Angular 7
+npm install @aloreljs/ngx-auto-id@^2.0.0 # for Angular 8
+npm install @aloreljs/ngx-auto-id@^1.0.0 # for Angular 7
 ```
 
 # Usage
