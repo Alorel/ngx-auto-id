@@ -1,4 +1,5 @@
-import {Directive, HostBinding, Input, OnInit} from '@angular/core';
+import {Directive, HostBinding, Inject, Input, OnInit, Optional} from '@angular/core';
+import {NGX_AUTO_ID_DEFAULT_PREFIX} from './DEFAULT_PREFIX_TOKEN';
 import {NgxAutoIdService} from './NgxAutoIdService';
 
 const _svc: unique symbol = Symbol('svc');
@@ -28,8 +29,18 @@ export class NgxAutoIdDirective implements OnInit {
   /** @internal */
   private [_svc]: NgxAutoIdService;
 
-  public constructor(svc: NgxAutoIdService) {
+  public constructor(
+    svc: NgxAutoIdService,
+    @Optional() @Inject(NGX_AUTO_ID_DEFAULT_PREFIX) defaultToken?: string
+  ) {
     Object.defineProperty(this, _svc, {value: svc});
+    if (defaultToken) {
+      if (typeof defaultToken === 'string') {
+        this.idPrefix = defaultToken;
+      } else {
+        console.warn('NGX_AUTO_ID_DEFAULT_PREFIX_TOKEN not a string');
+      }
+    }
   }
 
   /**
