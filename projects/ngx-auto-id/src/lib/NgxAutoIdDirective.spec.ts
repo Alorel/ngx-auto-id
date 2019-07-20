@@ -17,7 +17,7 @@ describe('NgxAutoIdDirective', () => {
       template: '<div ngx-auto-id></div>'
     })
     class DummyComponent {
-      @ViewChild(NgxAutoIdDirective)
+      @ViewChild(NgxAutoIdDirective, {static: false})
       public dir: NgxAutoIdDirective;
     }
 

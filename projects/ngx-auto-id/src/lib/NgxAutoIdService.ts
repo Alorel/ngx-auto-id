@@ -26,4 +26,11 @@ export class NgxAutoIdService {
     //tslint:disable-next-line:no-magic-numbers
     return prefix + (++this[_registry][prefix]).toString(36);
   }
+
+  /** Alias for {@link #next next()} */
+  public toString(): string {
+    return this.next();
+  }
 }
+
+NgxAutoIdService.prototype[Symbol.toStringTag] = 'NgxAutoIdService';
