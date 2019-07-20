@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "scripts": {
     "start": "ng serve",
-    "build:demo:aot": "ng build ngx-auto-id-demo --aot --prod",
+    "build:demo:aot": "ng build ngx-auto-id-demo --aot",
     "build:lib": "ng build ngx-auto-id",
     "test": "ng test ngx-auto-id --code-coverage",
     "test:watch": "npm --scripts-prepend-node-path=auto run test -- --watch",
