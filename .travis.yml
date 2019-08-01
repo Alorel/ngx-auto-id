@@ -11,6 +11,7 @@ script:
   - yarn run tslint
   - yarn test
   - yarn build:demo:aot
+  - yarn run build:lib
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/ngx-auto-id/lcov.info | coveralls
 cache:
