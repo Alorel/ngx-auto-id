@@ -69,6 +69,14 @@
     "@angular-devkit/core" "8.2.1"
     rxjs "6.4.0"
 
+"@angular-devkit/architect@0.803.1":
+  version "0.803.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.803.1.tgz#986e755d4e913abf6eb200deb247a4ad33f65ee0"
+  integrity sha512-VAakyyQ7SsJXMGeg3pOFREgp7W4JMl5z3Qhbjvzo34mb9OvmgSEVMB0aEN0ZMmA2VvJrIy1IWkJt4aARVIRquw==
+  dependencies:
+    "@angular-devkit/core" "8.3.1"
+    rxjs "6.4.0"
+
 "@angular-devkit/build-angular@~0.802.0":
   version "0.802.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.802.1.tgz#91cec9c07890ba7a2a5a45e9ec59b9c4d789c215"
@@ -123,12 +131,12 @@
     webpack-subresource-integrity "1.1.0-rc.6"
     worker-plugin "3.1.0"
 
-"@angular-devkit/build-ng-packagr@~0.802.0":
-  version "0.802.1"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.802.1.tgz#ec2a71c3fb7251458a7918351b0b5d4daeccef0d"
-  integrity sha512-zUiU42PsF+jysB3cgWvnB7mxhTENoRIPvkkBeL+dkixCqdcd+FXmM7jrgHrX+uVvR0/HtsSkS9K0V3nDfGBrEA==
+"@angular-devkit/build-ng-packagr@~0.803.1":
+  version "0.803.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.803.1.tgz#c65088954d682fa7f76e79897cd0c86b90b54795"
+  integrity sha512-bz7Qy0evb753jFc+vMuLlPFwpvmLVd5urfasce7DVJ1Xg1bSZxCXpqvh2jZN3PxMnJumkLs6ZoGyzrMmPsfqrg==
   dependencies:
-    "@angular-devkit/architect" "0.802.1"
+    "@angular-devkit/architect" "0.803.1"
     rxjs "6.4.0"
 
 "@angular-devkit/build-optimizer@0.802.1":
@@ -155,6 +163,17 @@
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.2.1.tgz#f389365e57e93ede2452eaf97aa48999afffe0ef"
   integrity sha512-d/PNSZYtJ10tY/TILe3TiB9wLjuxMja/oR0PhdrfuadTF/blZ6Qjg8aVzImkwnvsm+0TgDkIXwcMKnoNa2LDxQ==
+  dependencies:
+    ajv "6.10.2"
+    fast-json-stable-stringify "2.0.0"
+    magic-string "0.25.3"
+    rxjs "6.4.0"
+    source-map "0.7.3"
+
+"@angular-devkit/core@8.3.1":
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.1.tgz#6be526bd9c6351b1aaac3e9a083fbbeecdb9c848"
+  integrity sha512-H92REifFygP4a/0fsnshiz31KsuaHRrRHwfT67tVxPnN8rwWnTWkf5gxFwG8ezcBMnR5eVLBb/Xisnc/+A/8Kw==
   dependencies:
     ajv "6.10.2"
     fast-json-stable-stringify "2.0.0"
