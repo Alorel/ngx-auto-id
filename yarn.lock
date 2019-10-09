@@ -6713,10 +6713,10 @@ nerf-dart@^1.0.0:
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
-ng-packagr@~5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-5.5.0.tgz#e13f6f5c109d11453f2e17f7d6fe116564e8bb65"
-  integrity sha512-XfOHntvJHM5snNcGtxngeTvV2+8/mBJNJMWEsPrNL9yNXU9bDEh7DFf12GZa+HBQ5TUeX4SnX9DCRyXLdpJMlw==
+ng-packagr@~5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-5.6.1.tgz#c3664134d28289383a2bd95f09efa685432ffea6"
+  integrity sha512-Z7pOtjlWQe9eBGq6iDSWqBzpxq7IXO8tZssCZDv6v+6IvsgWVxbIndDr7g6IZyVJQriliCRjFQ70w3XoX4dSKw==
   dependencies:
     ajv "^6.10.2"
     autoprefixer "^9.6.0"
@@ -6734,7 +6734,7 @@ ng-packagr@~5.5.0:
     postcss "^7.0.0"
     postcss-url "^8.0.0"
     read-pkg-up "^5.0.0"
-    rimraf "^2.6.1"
+    rimraf "^3.0.0"
     rollup "^1.12.1"
     rollup-plugin-commonjs "^10.0.0"
     rollup-plugin-json "^4.0.0"
