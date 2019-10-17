@@ -38,6 +38,24 @@ describe('NgxAutoIdDirective', () => {
     });
 
     describe('If not a string', () => {
+      let origConsoleWarn: any;
+      let warnMsg: any;
+
+      beforeAll(() => {
+        origConsoleWarn = console.warn;
+        console.warn = (argMsg: string) => {
+          warnMsg = argMsg;
+        };
+      });
+
+      beforeEach(() => {
+        warnMsg = null;
+      });
+
+      afterAll(() => {
+        console.warn = origConsoleWarn;
+      });
+
       beforeEach(() => {
         TestBed.configureTestingModule({
           declarations: [NgxAutoIdDirective, DummyDirectiveComponent],
@@ -54,17 +72,8 @@ describe('NgxAutoIdDirective', () => {
       });
 
       it('Should print warning', () => {
-        let origConsoleWarn = console.warn;
-        try {
-          let msg: string = <any>null;
-          console.warn = (argMsg: string) => {
-            msg = argMsg;
-          };
-          init();
-          expect(msg).toBe('NGX_AUTO_ID_DEFAULT_PREFIX_TOKEN not a string');
-        } finally {
-          console.warn = origConsoleWarn;
-        }
+        init();
+        expect(warnMsg).toBe('NGX_AUTO_ID_DEFAULT_PREFIX_TOKEN not a string');
       });
     });
 
