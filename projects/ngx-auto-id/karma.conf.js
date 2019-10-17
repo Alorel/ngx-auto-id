@@ -10,6 +10,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
+      require('karma-mocha-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -20,10 +21,10 @@ module.exports = function (config) {
       reports: ['text-summary', 'lcovonly', 'html'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['mocha', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
     browsers: [process.env.CI ? 'ChromeHeadlessTravis' : 'ChromeHeadless'],
     singleRun: true,
     customLaunchers: {}
